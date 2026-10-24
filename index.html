@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fahad Wasim | Bespoke Tailoring & Doorstep Fitting</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#00D2FF',       /* Electric Blue Accent */
+                        'brand-dark': '#0082C8',  /* Deep Blue */
+                        'dark-bg': '#08090C',    /* Deep Obsidian Black */
+                        'card-bg': '#111319',    /* Charcoal Grey */
+                        'card-border': '#1E222D',/* Muted Slate Border */
+                    },
+                    fontFamily: {
+                        heading: ['"Syne"', 'sans-serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #08090C;
+            color: #E2E8F0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .heading-font {
+            font-family: 'Syne', sans-serif;
+        }
+        .blue-gradient-text {
+            background: linear-gradient(135deg, #FFFFFF 0%, #7DD3FC 50%, #00D2FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Floating WhatsApp Glow Animation */
+        .whatsapp-glow {
+            box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 20px rgba(37, 211, 102, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .blue-card-glow:hover {
+            box-shadow: 0 0 30px rgba(0, 210, 255, 0.15);
+        }
+
+        /* Category Filter Button Active Style */
+        .filter-btn.active {
+            background-color: #00D2FF;
+            color: #000000;
+            border-color: #00D2FF;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand selection:text-black">
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="fixed top-0 left-0 w-full z-50 bg-[#08090C]/80 backdrop-blur-lg border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="text-2xl md:text-3xl heading-font font-extrabold tracking-wider blue-gradient-text uppercase">
+                Fahad Wasim
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <div class="hidden md:flex space-x-8 text-xs uppercase tracking-widest text-slate-300 font-semibold">
+                <a href="#how-it-works" class="hover:text-brand transition">How It Works</a>
+                <a href="#showcase" class="hover:text-brand transition">Lookbook</a>
+                <a href="#why-us" class="hover:text-brand transition">Doorstep Service</a>
+            </div>
+
+            <!-- Header Call to Action -->
+            <a href="https://wa.me/923000000000?text=Hello%20Fahad%20Wasim,%20I%20would%20like%20to%20book%20a%20Doorstep%20Measurement%20Visit." 
+               target="_blank" 
+               class="hidden md:inline-flex items-center gap-2 border border-brand/50 bg-brand/10 px-5 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest text-brand hover:bg-brand hover:text-black transition duration-300 shadow-lg shadow-brand/10">
+               <i class="fa-brands fa-whatsapp text-base"></i> Book Doorstep Visit
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menuBtn" class="md:hidden text-brand text-2xl focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-card-bg border-b border-card-border px-6 py-4 flex flex-col space-y-4 text-sm uppercase tracking-wider">
+            <a href="#how-it-works" class="hover:text-brand py-1">How It Works</a>
+            <a href="#showcase" class="hover:text-brand py-1">Lookbook</a>
+            <a href="#why-us" class="hover:text-brand py-1">Doorstep Service</a>
+            <a href="https://wa.me/923000000000?text=Hello%20Fahad%20Wasim,%20I%20would%20like%20to%20book%20a%20Doorstep%20Measurement%20Visit." 
+               target="_blank" 
+               class="inline-block text-center border border-brand py-2.5 rounded-full text-brand font-semibold">
+                Book Visit via WhatsApp
+            </a>
+        </div>
+    </nav>
+
+
+    <!-- ================= HERO SECTION ================= -->
+    <section class="relative min-h-screen flex items-center justify-center pt-24 pb-16 px-6 overflow-hidden">
+        <div class="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-brand/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block border border-brand/40 text-brand text-xs uppercase tracking-[0.3em] px-4 py-1.5 rounded-full mb-6 bg-brand/5 font-semibold">
+                Premium Doorstep Tailoring
+            </span>
+            <h1 class="text-4xl md:text-7xl heading-font font-bold text-white leading-tight mb-6">
+                Precision Stitching. <br>
+                <span class="blue-gradient-text font-extrabold">At Your Doorstep.</span>
+            </h1>
+            <p class="text-slate-400 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+                Choose your favorite designs online. Our stitching specialist will visit your home with premium fabric samples, measure you accurately, and quote the price on the spot.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20want%20to%20book%20a%20home%20visit%20for%20stitching." 
+                   target="_blank" 
+                   class="w-full sm:w-auto bg-gradient-to-r from-brand to-brand-dark text-black font-bold text-xs uppercase tracking-widest px-8 py-4 rounded-full hover:opacity-90 transition shadow-lg shadow-brand/25 flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> Book Home Visit Now
+                </a>
+                <a href="#showcase" 
+                   class="w-full sm:w-auto border border-slate-700 hover:border-brand text-slate-200 hover:text-brand font-semibold text-xs uppercase tracking-widest px-8 py-4 rounded-full transition bg-slate-900/50">
+                    View Lookbook
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= HOW IT WORKS ================= -->
+    <section id="how-it-works" class="py-20 px-6 border-t border-slate-800/60 bg-card-bg/40">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-xs uppercase tracking-[0.3em] text-brand mb-2 font-bold">Seamless Process</h2>
+                <p class="text-3xl md:text-5xl heading-font font-bold text-white">How Fahad Wasim Works</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="border border-card-border bg-card-bg p-8 rounded-2xl relative group hover:border-brand/50 transition duration-300 blue-card-glow">
+                    <div class="text-5xl heading-font text-brand/30 mb-6 font-extrabold group-hover:text-brand transition">01</div>
+                    <h3 class="text-xl heading-font text-white mb-3 font-semibold">Explore & Select Design</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Browse our category lookbook or bring your own outfit design reference.
+                    </p>
+                </div>
+
+                <div class="border border-card-border bg-card-bg p-8 rounded-2xl relative group hover:border-brand/50 transition duration-300 blue-card-glow">
+                    <div class="text-5xl heading-font text-brand/30 mb-6 font-extrabold group-hover:text-brand transition">02</div>
+                    <h3 class="text-xl heading-font text-white mb-3 font-semibold">Doorstep Representative Visit</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Our master representative comes to your home with fabric samples, takes precise length/height measurements, and gives you a clear quote.
+                    </p>
+                </div>
+
+                <div class="border border-card-border bg-card-bg p-8 rounded-2xl relative group hover:border-brand/50 transition duration-300 blue-card-glow">
+                    <div class="text-5xl heading-font text-brand/30 mb-6 font-extrabold group-hover:text-brand transition">03</div>
+                    <h3 class="text-xl heading-font text-white mb-3 font-semibold">Custom Stitching & Delivery</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Your outfit is tailored to custom perfection and delivered to your doorstep.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= LOOKBOOK SHOWCASE WITH CATEGORY FILTERS ================= -->
+    <section id="showcase" class="py-20 px-3 md:px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-8">
+                <h2 class="text-xs uppercase tracking-[0.3em] text-brand mb-2 font-bold">Featured Catalog</h2>
+                <p class="text-2xl md:text-5xl heading-font font-bold text-white mb-3">Exclusive Lookbook</p>
+                <p class="text-slate-400 text-xs md:text-sm max-w-xl mx-auto">Filter by category and tap any design to inquire or request matching fabrics.</p>
+            </div>
+
+            <!-- CATEGORY FILTER BUTTONS -->
+            <div class="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-10">
+                <button class="filter-btn active border border-slate-700 bg-card-bg text-slate-300 hover:text-brand hover:border-brand text-xs font-semibold px-4 py-2 rounded-full transition" data-filter="all">
+                    All Collection
+                </button>
+                <button class="filter-btn border border-slate-700 bg-card-bg text-slate-300 hover:text-brand hover:border-brand text-xs font-semibold px-4 py-2 rounded-full transition" data-filter="shalwar-kameez">
+                    Shalwar Kameez
+                </button>
+                <button class="filter-btn border border-slate-700 bg-card-bg text-slate-300 hover:text-brand hover:border-brand text-xs font-semibold px-4 py-2 rounded-full transition" data-filter="groom">
+                    Groom Clothes
+                </button>
+                <button class="filter-btn border border-slate-700 bg-card-bg text-slate-300 hover:text-brand hover:border-brand text-xs font-semibold px-4 py-2 rounded-full transition" data-filter="coat-pant">
+                    Coat Pant
+                </button>
+                <button class="filter-btn border border-slate-700 bg-card-bg text-slate-300 hover:text-brand hover:border-brand text-xs font-semibold px-4 py-2 rounded-full transition" data-filter="pant-shirt">
+                    Pant Shirt
+                </button>
+            </div>
+
+            <!-- 2x2 MOBILE GRID / 4-COLUMN DESKTOP GRID -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-6" id="galleryGrid">
+                
+                <!-- Shalwar Kameez 1 -->
+                <div class="gallery-item shalwar-kameez bg-card-bg rounded-xl md:rounded-2xl overflow-hidden border border-card-border group hover:border-brand/50 transition duration-300 blue-card-glow flex flex-col">
+                    <div class="relative overflow-hidden h-52 sm:h-72 md:h-80">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80" 
+                             alt="Shalwar Kameez" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Royal%20Black%20Shalwar%20Kameez." 
+                           target="_blank" 
+                           class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-2 text-center">
+                            <span class="bg-brand text-black text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-full shadow-lg">Inquire via WhatsApp</span>
+                        </a>
+                    </div>
+                    <div class="p-3 md:p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-brand text-[10px] md:text-xs font-semibold uppercase tracking-wider">Shalwar Kameez</p>
+                            <h4 class="text-xs md:text-base heading-font text-white font-semibold line-clamp-1">Royal Cotton Kameez</h4>
+                        </div>
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Royal%20Cotton%20Kameez." 
+                           target="_blank" 
+                           class="mt-3 flex md:hidden items-center justify-center gap-1.5 w-full bg-brand/10 border border-brand/30 text-brand text-[11px] font-bold py-1.5 rounded-lg">
+                            <i class="fa-brands fa-whatsapp text-xs"></i> Order Design
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Groom Clothes 1 -->
+                <div class="gallery-item groom bg-card-bg rounded-xl md:rounded-2xl overflow-hidden border border-card-border group hover:border-brand/50 transition duration-300 blue-card-glow flex flex-col">
+                    <div class="relative overflow-hidden h-52 sm:h-72 md:h-80">
+                        <img src="https://images.unsplash.com/photo-1617137984095-74e4e5e3613f?auto=format&fit=crop&w=800&q=80" 
+                             alt="Groom Wear" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Royal%20Groom%20Sherwani%20/%20Prince%20Coat." 
+                           target="_blank" 
+                           class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-2 text-center">
+                            <span class="bg-brand text-black text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-full shadow-lg">Inquire via WhatsApp</span>
+                        </a>
+                    </div>
+                    <div class="p-3 md:p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-brand text-[10px] md:text-xs font-semibold uppercase tracking-wider">Groom Clothes</p>
+                            <h4 class="text-xs md:text-base heading-font text-white font-semibold line-clamp-1">Embroidered Prince Suit</h4>
+                        </div>
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Embroidered%20Prince%20Suit." 
+                           target="_blank" 
+                           class="mt-3 flex md:hidden items-center justify-center gap-1.5 w-full bg-brand/10 border border-brand/30 text-brand text-[11px] font-bold py-1.5 rounded-lg">
+                            <i class="fa-brands fa-whatsapp text-xs"></i> Order Design
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Coat Pant 1 -->
+                <div class="gallery-item coat-pant bg-card-bg rounded-xl md:rounded-2xl overflow-hidden border border-card-border group hover:border-brand/50 transition duration-300 blue-card-glow flex flex-col">
+                    <div class="relative overflow-hidden h-52 sm:h-72 md:h-80">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80" 
+                             alt="Coat Pant" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Executive%20Coat%20Pant." 
+                           target="_blank" 
+                           class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-2 text-center">
+                            <span class="bg-brand text-black text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-full shadow-lg">Inquire via WhatsApp</span>
+                        </a>
+                    </div>
+                    <div class="p-3 md:p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-brand text-[10px] md:text-xs font-semibold uppercase tracking-wider">Coat Pant</p>
+                            <h4 class="text-xs md:text-base heading-font text-white font-semibold line-clamp-1">Executive 2-Piece Suit</h4>
+                        </div>
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Executive%20Coat%20Pant." 
+                           target="_blank" 
+                           class="mt-3 flex md:hidden items-center justify-center gap-1.5 w-full bg-brand/10 border border-brand/30 text-brand text-[11px] font-bold py-1.5 rounded-lg">
+                            <i class="fa-brands fa-whatsapp text-xs"></i> Order Design
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Pant Shirt 1 -->
+                <div class="gallery-item pant-shirt bg-card-bg rounded-xl md:rounded-2xl overflow-hidden border border-card-border group hover:border-brand/50 transition duration-300 blue-card-glow flex flex-col">
+                    <div class="relative overflow-hidden h-52 sm:h-72 md:h-80">
+                        <img src="https://images.unsplash.com/photo-1598032895397-b9472444bf93?auto=format&fit=crop&w=800&q=80" 
+                             alt="Pant Shirt" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Formal%20Pant%20Shirt." 
+                           target="_blank" 
+                           class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-2 text-center">
+                            <span class="bg-brand text-black text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-full shadow-lg">Inquire via WhatsApp</span>
+                        </a>
+                    </div>
+                    <div class="p-3 md:p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-brand text-[10px] md:text-xs font-semibold uppercase tracking-wider">Pant Shirt</p>
+                            <h4 class="text-xs md:text-base heading-font text-white font-semibold line-clamp-1">Tailored Formal Shirt</h4>
+                        </div>
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Formal%20Pant%20Shirt." 
+                           target="_blank" 
+                           class="mt-3 flex md:hidden items-center justify-center gap-1.5 w-full bg-brand/10 border border-brand/30 text-brand text-[11px] font-bold py-1.5 rounded-lg">
+                            <i class="fa-brands fa-whatsapp text-xs"></i> Order Design
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Shalwar Kameez 2 -->
+                <div class="gallery-item shalwar-kameez bg-card-bg rounded-xl md:rounded-2xl overflow-hidden border border-card-border group hover:border-brand/50 transition duration-300 blue-card-glow flex flex-col">
+                    <div class="relative overflow-hidden h-52 sm:h-72 md:h-80">
+                        <img src="https://images.unsplash.com/photo-1593030761757-71fae45fa0e7?auto=format&fit=crop&w=800&q=80" 
+                             alt="Kurta Waistcoat" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Kurta%20with%20Waistcoat." 
+                           target="_blank" 
+                           class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-2 text-center">
+                            <span class="bg-brand text-black text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-full shadow-lg">Inquire via WhatsApp</span>
+                        </a>
+                    </div>
+                    <div class="p-3 md:p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-brand text-[10px] md:text-xs font-semibold uppercase tracking-wider">Shalwar Kameez</p>
+                            <h4 class="text-xs md:text-base heading-font text-white font-semibold line-clamp-1">Kurta with Waistcoat</h4>
+                        </div>
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Kurta%20with%20Waistcoat." 
+                           target="_blank" 
+                           class="mt-3 flex md:hidden items-center justify-center gap-1.5 w-full bg-brand/10 border border-brand/30 text-brand text-[11px] font-bold py-1.5 rounded-lg">
+                            <i class="fa-brands fa-whatsapp text-xs"></i> Order Design
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Groom Clothes 2 -->
+                <div class="gallery-item groom bg-card-bg rounded-xl md:rounded-2xl overflow-hidden border border-card-border group hover:border-brand/50 transition duration-300 blue-card-glow flex flex-col">
+                    <div class="relative overflow-hidden h-52 sm:h-72 md:h-80">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80" 
+                             alt="Wedding Sherwani" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Royal%20Groom%20Sherwani." 
+                           target="_blank" 
+                           class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center p-2 text-center">
+                            <span class="bg-brand text-black text-[10px] md:text-xs font-bold uppercase tracking-wider px-3 py-2 rounded-full shadow-lg">Inquire via WhatsApp</span>
+                        </a>
+                    </div>
+                    <div class="p-3 md:p-5 flex-1 flex flex-col justify-between">
+                        <div>
+                            <p class="text-brand text-[10px] md:text-xs font-semibold uppercase tracking-wider">Groom Clothes</p>
+                            <h4 class="text-xs md:text-base heading-font text-white font-semibold line-clamp-1">Designer Wedding Sherwani</h4>
+                        </div>
+                        <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20interested%20in%20Designer%20Wedding%20Sherwani." 
+                           target="_blank" 
+                           class="mt-3 flex md:hidden items-center justify-center gap-1.5 w-full bg-brand/10 border border-brand/30 text-brand text-[11px] font-bold py-1.5 rounded-lg">
+                            <i class="fa-brands fa-whatsapp text-xs"></i> Order Design
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= WHY DOORSTEP SERVICE ================= -->
+    <section id="why-us" class="py-20 px-6 bg-card-bg/60 border-y border-slate-800/60">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <span class="text-brand text-xs uppercase tracking-[0.3em] font-semibold">Exclusive Convenience</span>
+                <h3 class="text-3xl md:text-4xl heading-font font-bold text-white mt-2 mb-6">Why Choose Our Doorstep Service?</h3>
+                
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-check text-brand mt-1"></i>
+                        <span class="text-slate-300 text-sm"><strong class="text-white">Zero Travel Hassle:</strong> No need to visit markets or tailor shops.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-check text-brand mt-1"></i>
+                        <span class="text-slate-300 text-sm"><strong class="text-white">Feel Real Fabric:</strong> Touch and feel high-grade fabric samples in your own living room.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-check text-brand mt-1"></i>
+                        <span class="text-slate-300 text-sm"><strong class="text-white">Live Fitting Measurement:</strong> Master artisan takes exact height & fitting measurements in person.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-check text-brand mt-1"></i>
+                        <span class="text-slate-300 text-sm"><strong class="text-white">Instant Price Quote:</strong> Complete price transparency upfront.</span>
+                    </li>
+                </ul>
+
+                <a href="https://wa.me/923000000000?text=Hello,%20I%20want%20to%20book%20a%20Doorstep%20Measurement%20Visit." 
+                   target="_blank" 
+                   class="inline-block mt-8 border border-brand text-brand hover:bg-brand hover:text-black font-semibold text-xs uppercase tracking-widest px-8 py-3.5 rounded-full transition">
+                    Book Appointment
+                </a>
+            </div>
+
+            <div class="md:w-1/2 w-full">
+                <div class="p-8 border border-card-border bg-dark-bg/80 rounded-2xl text-center blue-card-glow">
+                    <i class="fa-solid fa-tape text-4xl text-brand mb-4"></i>
+                    <h4 class="text-2xl heading-font font-bold text-white mb-2">Book Your Home Fitting</h4>
+                    <p class="text-slate-400 text-sm mb-6">Send a quick WhatsApp message to reserve a slot with our representative.</p>
+                    <a href="https://wa.me/923000000000?text=Hi%20Fahad%20Wasim,%20I%20am%20ready%20to%20schedule%20a%20fitting%20appointment." 
+                       target="_blank" 
+                       class="w-full bg-brand text-black font-bold text-sm uppercase tracking-wider py-3.5 rounded-full block hover:bg-white transition shadow-lg shadow-brand/20">
+                        Chat On WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="py-12 px-6 border-t border-slate-800/80 text-center text-slate-500 text-xs">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-xl heading-font font-extrabold blue-gradient-text uppercase">
+                Fahad Wasim
+            </div>
+            <p>© 2026 Fahad Wasim Tailoring. All rights reserved.</p>
+            <div class="flex space-x-6 text-base">
+                <a href="https://wa.me/923000000000" target="_blank" class="text-slate-400 hover:text-brand"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" class="text-slate-400 hover:text-brand"><i class="fa-brands fa-facebook"></i></a>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- ================= GLOWING FLOATING WHATSAPP BUTTON ================= -->
+    <a href="https://wa.me/923000000000?text=Hello%20Fahad%20Wasim,%20I%20want%20to%20book%20a%20home%20visit." 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl whatsapp-glow transition-transform hover:scale-110"
+       title="Chat on WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+
+    <!-- ================= JAVASCRIPT FOR MOBILE MENU & CATEGORY FILTERS ================= -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Category Filter Functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const galleryItems = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                galleryItems.forEach(item => {
+                    if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
